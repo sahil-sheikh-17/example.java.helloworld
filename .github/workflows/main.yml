@@ -21,6 +21,10 @@ jobs:
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
           ls
           
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+          
+          
       - name: Create zip bundle
         run: |
           zip -r ../${{ github.sha }}.zip .
