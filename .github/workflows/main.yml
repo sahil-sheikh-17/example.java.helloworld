@@ -1,0 +1,19 @@
+name: Deploy feature branches to nonproduction bucket
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        
+      - name: building jar file
+        run: jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
+      
