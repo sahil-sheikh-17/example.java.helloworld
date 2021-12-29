@@ -20,11 +20,6 @@ jobs:
           java -cp . HelloWorld.Main
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
          
-      - name: Archive artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: output-artifact
-          path: Main.jar
           
           
       - name: Publish
