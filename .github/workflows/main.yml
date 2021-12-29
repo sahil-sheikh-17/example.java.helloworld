@@ -13,12 +13,36 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    
+    - name: building jar file
+        run:|
+          javac HelloWorld/Main.java
+          java -cp . HelloWorld.Main
+          jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
+          
+  
+       
+       
+    - name: Create zip bundle
+      run: |
+          cd function
+          zip -r ../${{ github.sha }}.zip .
+    - name: Archive artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: zipped-bundle
+        path: ${{ github.sha }}.zip
+    
+    
     - name: Deploy
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: | 
-          mkdir test4
-          cd test4
+        #script: | 
+        #  mkdir test5
+        
+      
+    
