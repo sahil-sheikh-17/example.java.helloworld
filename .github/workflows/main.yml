@@ -19,17 +19,9 @@ jobs:
           javac HelloWorld/Main.java
           java -cp . HelloWorld.Main
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
-          ls
-          pwd
          
-          
-      - name: Create zip bundle
-        run: |
-        
-          zip -r ../${{ github.sha }}.zip .
       - name: Archive artifact
         uses: actions/upload-artifact@v2
         with:
-          name: zipped-bundle
+          name: output-artifact
           path: Main.jar
-         
