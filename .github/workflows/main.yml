@@ -23,7 +23,7 @@ jobs:
           
       - name: Create zip bundle
         run: |
-          Main.jar
+          cd HelloWorld
           zip -r ../${{ github.sha }}.zip .
       - name: Archive artifact
         uses: actions/upload-artifact@v2
