@@ -1,24 +1,22 @@
-name: Laravel
+name: Deploy feature branches to nonproduction bucket
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  laravel-tests:
 
+  build:
     runs-on: ubuntu-latest
+    
     steps:
-    - uses: actions/checkout@v2
-    - name: building jar file
-        run:|
+      - name: Check out code
+        uses: actions/checkout@v2
+        
+      - name: building jar file
+        run: |
           javac HelloWorld/Main.java
           java -cp . HelloWorld.Main
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
-          
-
-        
-      
-    
+         
