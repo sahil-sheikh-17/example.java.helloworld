@@ -15,5 +15,8 @@ jobs:
         uses: actions/checkout@v2
         
       - name: building jar file
-        run: jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
+        run: |
+          javac HelloWorld/Main.java
+          java -cp . HelloWorld.Main
+          jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
       
