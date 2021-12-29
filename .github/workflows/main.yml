@@ -20,6 +20,5 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: | 
-          mkdir test3
-          cd test3
-          sudo nano sahil.txt
+          mkdir test4
+          cd test4
