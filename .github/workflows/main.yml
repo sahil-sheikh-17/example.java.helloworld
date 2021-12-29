@@ -21,7 +21,7 @@ jobs:
           script: | 
             mkdir test3
             cd test3
-            sudo nano sahil.txt
+            
       
         
      # - name: building jar file
