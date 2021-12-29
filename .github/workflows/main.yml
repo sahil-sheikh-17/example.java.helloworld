@@ -26,15 +26,7 @@ jobs:
           mvn -B package --file pom.xml
           mkdir staging && cp target/*.jar staging
           
-          
-          
-          
-      - name: Step 4 - Set up a cache for Maven
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      
           
           
       - name: Create zip bundle
@@ -44,5 +36,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: zipped-bundle
-          path: ${{ github.sha }}.zip
+          path: stagging
          
