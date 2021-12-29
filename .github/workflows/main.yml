@@ -21,7 +21,7 @@ jobs:
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
          
           
-          
+        # copy jar file to target server   
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
@@ -31,3 +31,13 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           user: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          
+        # run commands and script in target server.
+         #- name: Deploy
+      #uses: appleboy/ssh-action@master
+      #with:
+      #  host: ${{ secrets.SSH_HOST }}
+       # username: ${{ secrets.SSH_USERNAME }}
+       # key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #script: | 
+        #  mkdir test5
