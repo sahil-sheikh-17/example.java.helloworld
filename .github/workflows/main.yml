@@ -19,4 +19,5 @@ jobs:
           javac HelloWorld/Main.java
           java -cp . HelloWorld.Main
           jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
+          ls
       
