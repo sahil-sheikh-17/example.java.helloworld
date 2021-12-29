@@ -25,9 +25,7 @@ jobs:
           
           
     
-      - name: Build with Maven
-        run: |
-          mvn -B package --file pom.xml
+     
           
       
           
@@ -40,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: zipped-bundle
-          path: stagging
+          path: ${{ github.sha }}.zip
          
