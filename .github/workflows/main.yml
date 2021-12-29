@@ -1,33 +1,25 @@
-name: Deploy feature branches to nonproduction bucket
+name: Laravel
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
+  laravel-tests:
 
-  build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: | 
-            mkdir test3
-            cd test3
-            
-      
-        
-     # - name: building jar file
-      #  run: |
-       #   javac HelloWorld/Main.java
-        #  java -cp . HelloWorld.Main
-         # jar cfme Main.jar Manifest.txt HelloWorld.Main HelloWorld/Main.class
-          #ls
-      
+    - uses: actions/checkout@v2
+    - name: Deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: | 
+          mkdir test3
+          cd test3
+          sudo nano sahil.txt
