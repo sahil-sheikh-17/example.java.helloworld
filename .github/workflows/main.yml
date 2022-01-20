@@ -26,11 +26,11 @@ jobs:
         uses: nogsantos/scp-deploy@master
         with:
           src: Main.jar
-          host: ${{ secrets.SSH_HOST }}
-          remote: ${{ secrets.SSH_DIR }}
-          port: ${{ secrets.SSH_PORT }}
-          user: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+#          host: ${{ secrets.SSH_HOST }}
+ #         remote: ${{ secrets.SSH_DIR }}
+  #        port: ${{ secrets.SSH_PORT }}
+   #       user: ${{ secrets.SSH_USER }}
+    #      key: ${{ secrets.SSH_KEY }}
           
         # run commands and script in target server.
          #- name: Deploy
